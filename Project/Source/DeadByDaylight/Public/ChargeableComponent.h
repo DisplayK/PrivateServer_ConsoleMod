@@ -60,38 +60,37 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 	float DechargeDelay;
 
-private:
 	UPROPERTY(ReplicatedUsing=OnRep_CurrentCharge)
 	FSpeedBasedNetSyncedValue _currentCharge;
 
-	UPROPERTY(Transient)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FDBDTimer _skillCheckFailurePenaltyTimer;
 
-	UPROPERTY(Transient)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FDBDTimer _dechargeTimer;
 
-	UPROPERTY(Transient)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<FChargeData> _chargesThisFrame;
 
-	UPROPERTY(Transient)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<FChargeData> _redirectedChargesThisFrame;
 
 	UPROPERTY(Transient)
 	TMap<uint32, UChargeStrategy*> _activeChargeStrategies;
 
-	UPROPERTY(Transient)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<AActor*> _instigatorsSinceEmpty;
 
-	UPROPERTY(Transient)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TMap<FName, float> _tunableValueMap;
 
-	UPROPERTY(Transient)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool _isCharging;
 
-	UPROPERTY(Transient)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<int32> _playersWhoDidSkillCheck;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float _startingChargePercent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta=(AllowPrivateAccess=true))
@@ -103,10 +102,10 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta=(AllowPrivateAccess=true))
 	bool _enableSkillCheckFailurePenalty;
 
-	UPROPERTY(Transient)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool _isDecharging;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool _stopDechargingWhenComplete;
 
 public:

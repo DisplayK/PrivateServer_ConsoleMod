@@ -235,10 +235,7 @@ void ADBDPlayer::Server_Drop_Implementation(ACollectable* item, const FVector& l
 
 }
 
-void ADBDPlayer::Server_DebugSetCustomization_Implementation(const FEquippedPlayerCustomization& customization)
-{
-
-}
+void ADBDPlayer::Server_SetCustomization(TArray<FName> customizationParts, TArray<FCharmIdSlot> customizationCharms){}
 
 void ADBDPlayer::Server_Broadcast_DebugPlayMontage_Implementation(FAnimationMontageDescriptor animMontageID, float playRate)
 {
@@ -380,10 +377,7 @@ void ADBDPlayer::Multicast_SetDebugCarry_Implementation(bool enabled)
 
 }
 
-void ADBDPlayer::Multicast_SetCustomization_Implementation(const FEquippedPlayerCustomization& customization)
-{
-
-}
+void ADBDPlayer::Multicast_SetCustomization(TArray< FName> customizationParts, TArray< FCharmIdSlot> customizationCharms){}
 
 void ADBDPlayer::Multicast_SetContinuousPrintDebug_Implementation(bool enabled)
 {

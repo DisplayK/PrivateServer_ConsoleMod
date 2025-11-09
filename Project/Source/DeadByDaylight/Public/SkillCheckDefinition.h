@@ -9,43 +9,43 @@ struct FSkillCheckDefinition
 	GENERATED_BODY()
 
 public:
-	UPROPERTY(Transient)
+	UPROPERTY(BlueprintReadWrite, Transient)
 	float SuccessZoneStart;
 
-	UPROPERTY(Transient)
+	UPROPERTY(BlueprintReadWrite, Transient)
 	float SuccessZoneEnd;
 
-	UPROPERTY(Transient)
+	UPROPERTY(BlueprintReadWrite, Transient)
 	float BonusZoneLength;
 
-	UPROPERTY(Transient)
+	UPROPERTY(BlueprintReadWrite, Transient)
 	float BonusZoneStart;
 
-	UPROPERTY(Transient)
+	UPROPERTY(BlueprintReadWrite, Transient)
 	float ProgressRate;
 
-	UPROPERTY(Transient)
+	UPROPERTY(BlueprintReadWrite, Transient)
 	float StartingTickerPosition;
 
-	UPROPERTY(Transient)
+	UPROPERTY(BlueprintReadWrite, Transient)
 	bool IsDeactivatedAfterResponse;
 
-	UPROPERTY(Transient)
+	UPROPERTY(BlueprintReadWrite, Transient)
 	float WarningSoundDelay;
 
-	UPROPERTY(Transient)
+	UPROPERTY(BlueprintReadWrite, Transient)
 	bool IsAudioMuted;
 
-	UPROPERTY(Transient)
+	UPROPERTY(BlueprintReadWrite, Transient)
 	bool IsJittering;
 
-	UPROPERTY(Transient)
+	UPROPERTY(BlueprintReadWrite, Transient)
 	bool IsSuccessZoneMirrorred;
 
-	UPROPERTY(Transient)
+	UPROPERTY(BlueprintReadWrite, Transient)
 	bool IsInsane;
 
-	UPROPERTY(Transient)
+	UPROPERTY(BlueprintReadWrite, Transient)
 	bool IsLocallyPredicted;
 
 public:

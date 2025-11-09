@@ -26,42 +26,40 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool ShouldShowWarning();
 
-private:
 	UFUNCTION(Server, Reliable)
 	void Server_OnSkillCheckSuccess(FSkillCheckResponse skillCheckResponse);
 
 	UFUNCTION(Server, Reliable)
 	void Server_OnSkillCheckFailure(FSkillCheckResponse skillCheckResponse);
 
-	UFUNCTION(Server, Reliable)
+	UFUNCTION(BlueprintCallable, Server, Reliable)
 	void Server_DeactivateSkillCheck();
 
-	UFUNCTION(Server, Reliable)
+	UFUNCTION(BlueprintCallable, Server, Reliable)
 	void Server_ActivateSkillCheck(UChargeableInteractionDefinition* interaction, ESkillCheckCustomType skillCheckCustomType, FSkillCheckDefinition definition);
 
 	UFUNCTION(NetMulticast, Reliable)
 	void Multicast_SkillCheckResponse(FSkillCheckResponse skillCheckResponse);
 
-	UFUNCTION(NetMulticast, Reliable)
+	UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
 	void Multicast_OnTriggerSkillCheck(UChargeableInteractionDefinition* currentInteraction, ESkillCheckCustomType skillCheckCustomType, const FString& id, const FString& salt, const float warningSoundDelay);
 
-	UFUNCTION(NetMulticast, Reliable)
+	UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
 	void Multicast_OnTriggerCustomSkillCheck(UChargeableInteractionDefinition* currentInteraction, ESkillCheckCustomType skillCheckCustomType, const FString& id, const FString& salt, const FSkillCheckDefinition& definition);
 
-	UFUNCTION(NetMulticast, Reliable)
+	UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
 	void Multicast_OnTriggerContinuousCustomSkillCheck(UChargeableInteractionDefinition* currentInteraction, ESkillCheckCustomType skillCheckCustomType, const FSkillCheckDefinition& definition);
 
-	UFUNCTION(NetMulticast, Reliable)
+	UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
 	void Multicast_DeactivateSkillCheck();
 
-	UFUNCTION(NetMulticast, Reliable)
+	UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
 	void Multicast_ActivateSkillCheck(UChargeableInteractionDefinition* interaction, ESkillCheckCustomType skillCheckCustomType, FSkillCheckDefinition definition);
 
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void Local_OnSkillCheckSuccessTrigger(const bool bonus, const bool insane, ESkillCheckCustomType skillCheckCustomType, const bool failedCountedAsGood);
 
-public:
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void Local_OnSkillCheckFailureTrigger(const bool hadInput, const bool insane, ESkillCheckCustomType skillCheckCustomType);
 
 	UFUNCTION(BlueprintPure)

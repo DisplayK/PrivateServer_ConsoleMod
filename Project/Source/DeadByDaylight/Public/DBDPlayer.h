@@ -575,8 +575,8 @@ public:
 	UFUNCTION(Server, Reliable)
 	void Server_Drop(ACollectable* item, const FVector& location, const FRotator& rotation, bool onDeath);
 
-	UFUNCTION(Server, Reliable, BlueprintCallable)
-	void Server_DebugSetCustomization(const FEquippedPlayerCustomization& customization);
+	UFUNCTION(BlueprintCallable)
+	void Server_SetCustomization(TArray<FName> customizationParts, TArray<FCharmIdSlot> customizationCharms);
 
 protected:
 	UFUNCTION(Server, Reliable)
@@ -700,8 +700,8 @@ public:
 	void Multicast_SetDebugCarry(bool enabled);
 
 protected:
-	UFUNCTION(NetMulticast, Reliable, BlueprintCallable)
-	void Multicast_SetCustomization(const FEquippedPlayerCustomization& customization);
+	UFUNCTION(BlueprintCallable)
+	void Multicast_SetCustomization(TArray< FName> customizationParts, TArray< FCharmIdSlot> customizationCharms);
 
 public:
 	UFUNCTION(NetMulticast, Reliable)
@@ -718,7 +718,7 @@ protected:
 	void Multicast_ReplicateController(AController* newController);
 
 public:
-	UFUNCTION(NetMulticast, Reliable)
+	UFUNCTION(NetMulticast, Reliable, BlueprintCallable)
 	void Multicast_LeaveGame(FGuid uniqueLeavingPlayerId);
 
 	UFUNCTION(NetMulticast, Reliable)

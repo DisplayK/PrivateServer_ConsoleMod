@@ -9,11 +9,11 @@ struct FDBDTunableRowHandle
 {
 	GENERATED_BODY()
 
-private:
-	UPROPERTY(EditAnywhere)
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FDataTableRowHandle _dataTableRowHandle;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float _defaultValue;
 
 public:

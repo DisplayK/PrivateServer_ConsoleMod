@@ -10,8 +10,8 @@ struct FTunableStat: public FBaseStat
 {
 	GENERATED_BODY()
 
-protected:
-	UPROPERTY(EditDefaultsOnly)
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FDBDTunableRowHandle _baseValue;
 
 public:

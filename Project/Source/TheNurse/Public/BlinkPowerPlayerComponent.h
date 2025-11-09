@@ -18,67 +18,65 @@ class THENURSE_API UBlinkPowerPlayerComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
-private:
-	UPROPERTY(EditDefaultsOnly)
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FTunableStat _maxBlinkCharges;
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FTunableStat _rechargeDuration;
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FTunableStat _chainBlinkDuration;
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FGameplayTagContainer _allowedInteractionSemancticsDuringChainBlink;
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FTunableStat _fatigueDuration;
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FTunableStat _fatigueChainBlinkPenalty;
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FTunableStat _fatigueAttackPenalty;
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FGameplayTag _fatigueAttackMissPenaltyModifier;
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	UCurveFloat* _fatigueSpeedCurve;
 
-	UPROPERTY(ReplicatedUsing=OnRep_BlinkState)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere,ReplicatedUsing=OnRep_BlinkState)
 	EBlinkPowerState _powerState;
 
-	UPROPERTY(ReplicatedUsing=OnRep_BlinkCharges)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_BlinkCharges)
 	int32 _blinkCharges;
 
-	UPROPERTY(Replicated)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated)
 	bool _wasCurrentChargeSetByRecharge;
 
-	UPROPERTY(Export)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Export)
 	UTimerObject* _chainBlinkTimer;
 
-	UPROPERTY(Export)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Export)
 	UTimerObject* _cooldownTimer;
 
-	UPROPERTY(Export)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Export)
 	UTimerObject* _rechargeTimer;
 
-public:
 	UFUNCTION(BlueprintCallable)
 	void Setup(const FBlinkPowerSetupParams& params);
 
-private:
-	UFUNCTION(Server, Reliable)
+	UFUNCTION(BlueprintCallable, Server, Reliable)
 	void Server_TriggerCooldown(float duration);
 
-	UFUNCTION(Server, Reliable)
+	UFUNCTION(BlueprintCallable, Server, Reliable)
 	void Server_TriggerChainBlink(int32 remainingBlinkCharges);
 
-	UFUNCTION(Server, Reliable)
+	UFUNCTION(BlueprintCallable, Server, Reliable)
 	void Server_SetState(EBlinkPowerState state);
 
-	UFUNCTION(Server, Reliable)
+	UFUNCTION(BlueprintCallable, Server, Reliable)
 	void Server_InterruptDuringChainBlink(AActor* interruptedPlayer);
 
 	UFUNCTION()
@@ -96,7 +94,6 @@ private:
 	UFUNCTION()
 	void OnAttackFinished(const EAttackType attackType);
 
-public:
 	UFUNCTION(BlueprintPure)
 	bool IsChargingBlink() const;
 

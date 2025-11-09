@@ -41,7 +41,7 @@ public:
 	bool TeleportWithClothHandling(const FVector& location, const FRotator& rotation, bool checkCollisions);
 
 protected:
-	UFUNCTION(NetMulticast, Reliable)
+	UFUNCTION(NetMulticast, Reliable, BlueprintCallable)
 	void Multicast_SwapCosmetics(FName cosmeticId);
 
 public:
