@@ -20,7 +20,7 @@ protected:
 	UPROPERTY(BlueprintReadWrite, Transient, Export)
 	TArray<USceneComponent*> _snapPoints;
 
-private:
+public:
 	UPROPERTY(EditDefaultsOnly)
 	FDBDTunableRowHandle _unhookLoudNoiseRange;
 
@@ -39,13 +39,13 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<UStatusEffect> _survivorRecentlyUnhookedEffectClass;
 
-	UPROPERTY(Transient)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient)
 	ADBDPlayer* _unhookingPlayer;
 
 	UPROPERTY(EditDefaultsOnly)
 	float _hookedCharacterSnapTime;
 
-	UPROPERTY(Transient)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient)
 	ACamperPlayer* _playerBeingUnhooked;
 
 public:
