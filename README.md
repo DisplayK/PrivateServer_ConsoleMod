@@ -5,18 +5,16 @@ The Console Mod, intended to be used only on the Private Server. Enables use of 
 **Requires Horocore**
 
 Notable Features:
-- Execute commands. (duh)
-- Press V to enable flying.
-- Possess other characters in the game.
-- Change survivors healthstates at will in the Players tab.
-- Set any of 695 gameplay tags, including on other players/bots, in the players tab.
-- Change the speed of the game with the "timedilation" command.
-- Spawn any item in the players tab.
-- Etc.
+ - Execute commands
+ - Add perks ingame
+ - Press V to enable flying
+ - Possess other characters in the game
+ - Spawn any item
+ - Etc
 
 Press F9 to open the console window.
 
 ## Project instructions (For use with Unreal Engine)
 
-Simply start the uproject file. Alternatively just copy files from the content directory to another UE project. 
+Simply start the uproject file. Alternatively just copy files from the content directory to another UE project (Thiss will lead to errors as the project source will be different, but if you set all of console mods files to never cook it should be fine). 
 
